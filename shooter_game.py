@@ -33,6 +33,7 @@ fire1 = mixer.Sound('fire.ogg')
 font.init()
 font1 = font.Font(None, 36)
 
+#создание персонажа
 class GameSprite(sprite.Sprite):
     def __init__(self, player_image, player_x, player_y, player_speed):
         super().__init__()
@@ -43,7 +44,7 @@ class GameSprite(sprite.Sprite):
         self.rect.y = player_y
     def reset(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
-
+#соание игрока
 class Player(GameSprite):
     def update(self):
         keys = key.get_pressed()
@@ -54,7 +55,7 @@ class Player(GameSprite):
     def fire(self):
         bullet = Bullet('bullet.png', self.rect.centerx, self.rect.top, -15)
         bullets.add(bullet)
-
+#создание врага
 class Enemy(GameSprite):
     def update(self):
         self.rect.y += self.speed
@@ -64,14 +65,14 @@ class Enemy(GameSprite):
             self.rect.y = 0
             lost += 1
         
-
+#создание астеройда
 class Enemy2(GameSprite):
     def update(self):
         self.rect.y += self.speed
         if self.rect.y > windy:
             self.rect.x = randint(80, windy - 80)
             self.rect.y = 0
-
+#сощдание пули
 class Bullet(GameSprite):
     def update(self):
         self.rect.y += self.speed
