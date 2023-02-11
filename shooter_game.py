@@ -104,8 +104,10 @@ while playing:
                     player.fire()
                     fire1.play()
                     overheat += 1
+            #перезарядка
             if e.key == K_r:
                 overheat = 0
+            #читы
             if e.key == K_1:
                 cheat = True
             if e.key == K_2:
